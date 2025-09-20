@@ -3,7 +3,7 @@ import { Router } from "express";
 const router = Router();
 
 router.get("/greet", (req, res) => {
-  const name = "Phùng Xuân Quí";
+  const name = req.query.name;
   res.send(`Xin chào ${name}`);
 });
 
