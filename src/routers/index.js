@@ -1,17 +1,13 @@
 import { Router } from "express";
 
+import productsRouter from "./products";
+import userRouter from "./user";
+import postsRouter from "./posts";
+
 const router = Router();
 
-router.get("/greet", (req, res) => {
-  const name = req.query.name;
-  res.send(`Xin chào ${name}`);
-});
-
-router.get("/sum", (req, res) => {
-  const a = parseInt(req.query.a, 10) || 0;
-  const b = parseInt(req.query.b, 10) || 0;
-  const c = a + b;
-  return res.send(`tổng của: ${a} + ${b} là ${c}`);
-});
+router.use("/products", productsRouter);
+router.use("/user", userRouter);
+router.use("/posts", postsRouter);
 
 export default router;
