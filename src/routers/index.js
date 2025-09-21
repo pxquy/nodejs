@@ -6,7 +6,12 @@ import postsRouter from "./posts";
 
 const router = Router();
 
-router.use("/products", productsRouter);
+const logRequestTime = (req, res, next) => {
+  console.log(`Request received at: ${new Date().toLocaleTimeString()}`);
+  next();
+};
+
+router.use("/products", logRequestTime, productsRouter);
 router.use("/user", userRouter);
 router.use("/posts", postsRouter);
 
