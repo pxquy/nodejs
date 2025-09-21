@@ -1,0 +1,177 @@
+{
+  "info": {
+    "name": "Học nodejs",
+    "_postman_id": "demo-collection-2025",
+    "description": "Collection các endpoint API cho dự án NodeNew",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Test API",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/test",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "test"]
+        }
+      }
+    },
+    {
+      "name": "Sản phẩm",
+      "item": [
+        {
+          "name": "Danh sách sản phẩm",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "Lấy sản phẩm theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "products", ":id"]
+            }
+          }
+        },
+        {
+          "name": "Thêm sản phẩm mới",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Product Name\",\n  \"price\": 100\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "products"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Người dùng",
+      "item": [
+        {
+          "name": "Danh sách người dùng",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "user"]
+            }
+          }
+        },
+        {
+          "name": "Tìm người dùng theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/user/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "user", ":id"]
+            }
+          }
+        },
+        {
+          "name": "Thêm người dùng mới",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"User Name\",\n  \"email\": \"user@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/user",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "user"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sách",
+      "item": [
+        {
+          "name": "Tất cả sách",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/posts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "posts"]
+            }
+          }
+        },
+        {
+          "name": "Tìm sách theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/posts/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "posts", ":id"]
+            }
+          }
+        },
+        {
+          "name": "Thêm sách mới",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Post Title\",\n  \"content\": \"Post content\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/posts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "posts"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
