@@ -15,8 +15,8 @@ export const getAllProducts = async (req, res) => {
       result = products.filter((p) => p.price <= maxPrice);
     }
     if (name) {
-      result = products.filter(
-        (p) => p.name.toLowerCase() == name.toLowerCase()
+      result = products.filter((p) =>
+        p.name.toLowerCase().includes(name.toLowerCase())
       );
     }
 
