@@ -69,7 +69,7 @@ export const deletePost = async (req, res) => {
 
     const deletePost = posts.findIndex((p) => p.id === id);
 
-    posts.splice(index, 1);
+    posts.splice(deletePost, 1);
 
     return res.status(200).json({
       message: "success",
