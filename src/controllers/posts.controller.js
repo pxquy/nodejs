@@ -5,6 +5,17 @@ let posts = [
 
 export const getAllPosts = async (req, res) => {
   try {
+    const { search } = req.query;
+
+    if (search) {
+      return res
+        .status(200)
+        .json(
+          posts.filter((p) =>
+            p.title.toLowerCase().includes(search.toLowerCase())
+          )
+        );
+    }
     return res.status(200).json({ data: posts });
   } catch (error) {
     return res.status(400).json("Có lỗi");
@@ -36,7 +47,7 @@ export const createPost = async (req, res) => {
   try {
     const { title, content } = req.body;
 
-    const create = { title, content };
+    const create = { id: Date.now(), title, content };
 
     return res.status(201).json({
       message: "Thêm thành công",
