@@ -65,15 +65,16 @@ export const updatePost = async (req, res) => {
 
 export const deletePost = async (req, res) => {
   try {
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
 
     const deletePost = posts.findIndex((p) => p.id === id);
 
-    posts.splice(deletePost, 1);
+    const deleted = posts.splice(deletePost, 1);
 
     return res.status(200).json({
-      message: "success",
-      data: deletePost,
+      success: "true",
+      message: `Dữ liệu vừa xoá:`,
+      data: deleted[0],
     });
   } catch (error) {
     return res.status(400).json("Có lỗi");
