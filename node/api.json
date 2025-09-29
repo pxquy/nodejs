@@ -58,7 +58,7 @@
             "header": [{ "key": "Content-Type", "value": "application/json" }],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Product Name\",\n  \"price\": 100\n}"
+              "raw": "{\n  \"name\": \"Product Name\",\n  \"price\": 100,\n \"description\": \"mô tả test\",\n}"
             },
             "url": {
               "raw": "http://localhost:3000/api/products",
@@ -66,6 +66,38 @@
               "host": ["localhost"],
               "port": "3000",
               "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "Sửa sản phẩm",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Product Name\",\n  \"price\": 100\n, \"description\": \"mô tả test\",\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "products", ":id"]
+            }
+          }
+        },
+        {
+          "name": "Xoá sản phẩm",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "products", ":id"]
             }
           }
         }
