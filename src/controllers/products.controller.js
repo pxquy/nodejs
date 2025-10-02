@@ -39,7 +39,7 @@ export const getAllProducts = async (req, res) => {
   }
 
   try {
-    const getAll = await Products.paginate({}, loaded, options);
+    const getAll = await Products.paginate(loaded, options);
 
     if (getAll.docs.length === 0) {
       return res.status(200).json({
