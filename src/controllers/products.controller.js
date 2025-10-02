@@ -12,7 +12,7 @@ export const getAllProducts = async (req, res) => {
     _maxPrice,
   } = req.query;
 
-  const sortOption = { [_sort]: _order === "desc" ? -1 : 1 };
+  const sortOption = { [_sort]: _order === "desc" ? 1 : -1 };
 
   const options = {
     page: parseInt(_page),
