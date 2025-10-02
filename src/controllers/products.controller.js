@@ -8,8 +8,8 @@ export const getAllProducts = async (req, res) => {
     _order = "desc",
     _search = "name",
     _keyword = "",
-    _minPrice = 200,
-    _maxPrice = 500,
+    _minPrice,
+    _maxPrice,
   } = req.query;
 
   const sortOption = { [_sort]: _order === "desc" ? -1 : 1 };
@@ -39,7 +39,7 @@ export const getAllProducts = async (req, res) => {
   }
 
   try {
-    const getAll = await Products.paginate({}, loaded, options);
+    const getAll = await Products.paginate(loaded, options);
 
     if (getAll.docs.length === 0) {
       return res.status(200).json({
