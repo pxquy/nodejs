@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+const objectId = mongoose.Schema.Types.ObjectId;
 const postSchema = new mongoose.Schema(
   {
     title: {
@@ -14,7 +15,7 @@ const postSchema = new mongoose.Schema(
       type: String,
     },
     category: {
-      type: mongoose.Schema.Types.ObjectId(),
+      type: objectId,
       ref: "Categories",
     },
   },
