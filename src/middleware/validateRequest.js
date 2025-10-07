@@ -10,7 +10,7 @@ export const validateRequest = (schema, target = "body") => {
     if (error) {
       return res.status(400).json({
         error: "Lỗi Kiểu dữ liệu",
-        details: details.map((err) => err.message),
+        details: error.details.map((err) => err.message),
       });
     }
 
