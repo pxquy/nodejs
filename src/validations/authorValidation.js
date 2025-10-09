@@ -1,4 +1,5 @@
 import Joi from "joi";
+import { Schema } from "mongoose";
 
 export const authorValidation = Joi.object({
   name: Joi.string().required().min(2).max(100).messages({
@@ -13,3 +14,8 @@ export const authorValidation = Joi.object({
     "string.max": "Thông tin tác giả tối đa {#limit} ký tự",
   }),
 });
+
+export const authorValidationUpdate = authorValidation.fork(
+  ["name", "bio"],
+  (Schema) => Schema.optional()
+);
