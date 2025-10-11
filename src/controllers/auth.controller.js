@@ -19,6 +19,8 @@ export const signup = async (req, res) => {
       password: hashPassword,
     });
 
+    user.password = undefined;
+
     return res.status(201).json({
       message: "Đăng ký thành công!",
       data: user,
