@@ -9,7 +9,7 @@ export const authorValidation = Joi.object({
     "string.min": "tên sản phẩm không được ngắn quá {#limit} ký tự",
     "any.required": "Tên sản phẩm bắt buộc nhập",
   }),
-  bio: Joi.string().optional().allow("").max(500).message({
+  bio: Joi.string().optional().allow("").max(500).messages({
     "string.base": "Thông tin tác giả phải có kiểu là chuỗi",
     "string.max": "Thông tin tác giả tối đa {#limit} ký tự",
   }),

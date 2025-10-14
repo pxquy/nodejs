@@ -1,3 +1,4 @@
+import { populate } from "dotenv";
 import Products from "../models/products.model";
 
 export const getAllProducts = async (req, res) => {
@@ -18,6 +19,7 @@ export const getAllProducts = async (req, res) => {
     page: parseInt(_page),
     limit: parseInt(_limit),
     sort: sortOption,
+    populate: "category",
   };
 
   const loaded = {};

@@ -1,21 +1,15 @@
 import { Router } from "express";
-import {
-  getAllUser,
-  profile,
-  signin,
-  signup,
-} from "../controllers/auth.controller";
+import { signin, signup } from "../controllers/auth.controller";
 import { verifyJWT } from "../middleware/verify";
 import { restrectTo } from "../middleware/restricTo";
+import { getAllUser, profile } from "../controllers/user.controller";
 
 const router = Router();
 
 router.post("/signup", signup);
 router.post("/login", signin);
-router.get("/profile", profile);
 
-router.use(verifyJWT);
-router.use(restrectTo("admin"));
+router.get("/profile", verifyJWT, restrectTo("admin", "user"), profile);
 
-router.get("/users", getAllUser);
+router.get("/users", verifyJWT, restrectTo("admin"), getAllUser);
 export default router;

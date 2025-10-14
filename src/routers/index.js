@@ -5,6 +5,7 @@ import userRouter from "./user";
 import postsRouter from "./posts";
 import authorRouter from "./author.router";
 import authRouter from "./auth.router";
+import authCategory from "./category.router";
 
 const router = Router();
 
@@ -18,5 +19,6 @@ router.use("/user", userRouter);
 router.use("/posts", postsRouter);
 router.use("/author", authorRouter);
 router.use("/auth", authRouter);
+router.use("/category", authCategory);
 
 export default router;
