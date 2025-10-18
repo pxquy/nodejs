@@ -1,3 +1,4 @@
+import { required } from "joi";
 import mongoose from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2";
 
@@ -5,7 +6,8 @@ const categoriesSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      require: [true, "Trường này bắt buộc nhập"],
+      unique: [true, "Tên danh mục không được trùng lặp"],
+      required: [true, "Trường này bắt buộc nhập"],
     },
   },
   { timestamp: true, versionKey: false }

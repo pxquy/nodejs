@@ -1,4 +1,4 @@
-import Comment from "../models/categories.model";
+import Comment from "../models/comment.model";
 import Products from "../models/products.model";
 
 export const getAllComment = async (req, res) => {
@@ -13,7 +13,10 @@ export const getAllComment = async (req, res) => {
       });
     return res.status(200).json({ data: getAll });
   } catch (error) {
-    return res.status(500).json("Có lỗi");
+    return res.status(500).json({
+      message: "Lỗi dữ liệu server",
+      error: error.message,
+    });
   }
 };
 
@@ -35,22 +38,23 @@ export const getById = async (req, res) => {
   }
 };
 
-export const getByIdProductComment = async(req, res) => {
- try {
-       const getInFoProduct = await findOne({product: Products._id});
+export const getByIdProductComment = async (req, res) => {
+  try {
+    const getInFoProduct = await findOne({ product: Products._id });
 
-    if(getInFoProduct) return res.status(404).json({
-        message: "Không tìm thấy Id sản phẩm yêu cầu!"
-    });
+    if (getInFoProduct)
+      return res.status(404).json({
+        message: "Không tìm thấy Id sản phẩm yêu cầu!",
+      });
 
     return res.status(200).json({
-        message: "Chi tiết sản phẩm có bình luận:",
-        data: getInFoProduct,
-    })
- } catch (error) {
-    return res.status(500).json("Có Lỗi")
- }
-}
+      message: "Chi tiết sản phẩm có bình luận:",
+      data: getInFoProduct,
+    });
+  } catch (error) {
+    return res.status(500).json("Có Lỗi");
+  }
+};
 
 export const createComment = async (req, res) => {
   try {

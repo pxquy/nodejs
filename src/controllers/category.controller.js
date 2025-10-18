@@ -6,7 +6,7 @@ export const getAllCategories = async (req, res) => {
     _limit = 5,
     _sort = "createdAt",
     order = "desc",
-  } = req.body;
+  } = req.query;
 
   const orderSort = { [_sort]: order == "desc" ? -1 : 1 };
   const options = {

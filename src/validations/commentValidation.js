@@ -10,5 +10,5 @@ export const commentValidation = Joi.object({
 
 export const commentUpdateValidate = commentValidation.fork(
   ["title", "content", "product", "user"],
-  (Schema = Schema.optional())
+  (Schema) => Schema.optional()
 );

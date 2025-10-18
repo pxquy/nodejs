@@ -82,6 +82,28 @@ export const getById = async (req, res) => {
     });
   }
 };
+
+export const productByCategory = async (req, res) => {
+  try {
+    const getProductByCategory = await Products.find({
+      category: req.params.id,
+    }).populate("category");
+
+    if(!getProductByCategory || getProductByCategory.length == 0) return res.status(404).json({
+      message: "Chưa có sản phẩm nào theo danh mục này",
+    })
+
+    return res.status(200).json({
+      message: "Danh sách sản phẩm theo danh mục:",
+      data: getProductByCategory,
+    })
+  } catch (error) {
+    return res.status(500).json({
+      message: "Lỗi dự liệu phía server",
+      error: error.message,
+    });
+  }
+};
 export const createProduct = async (req, res) => {
   try {
     const { name, price, description } = req.body;

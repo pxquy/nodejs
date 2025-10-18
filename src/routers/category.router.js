@@ -8,7 +8,7 @@ import {
 } from "../controllers/category.controller";
 import { validateRequest } from "../middleware/validateRequest";
 import { categoryValidation } from "../validations/categoryValidation";
-import { restrectTo } from "../middleware/restricTo";
+import { restrictTo } from "../middleware/restricTo";
 import { verifyJWT } from "../middleware/verify";
 
 const router = Router();
@@ -16,10 +16,13 @@ const router = Router();
 router.get("/", getAllCategories);
 router.get("/:id", getById);
 
-router.use(verifyJWT);
-router.use(restrectTo("admin"));
-
-router.post("/", validateRequest(categoryValidation), createCategories);
-router.put("/:id", updateCategories);
-router.delete("/:id", deleteCategories);
+router.post(
+  "/",
+  verifyJWT,
+  restrictTo("admin"),
+  validateRequest(categoryValidation),
+  createCategories
+);
+router.put("/:id", verifyJWT, restrictTo("admin"), updateCategories);
+router.delete("/:id", verifyJWT, restrictTo("admin"), deleteCategories);
 export default router;

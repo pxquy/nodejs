@@ -6,6 +6,7 @@ import postsRouter from "./posts";
 import authorRouter from "./author.router";
 import authRouter from "./auth.router";
 import authCategory from "./category.router";
+import commentRouter from "./comment.router";
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.use("/posts", postsRouter);
 router.use("/author", authorRouter);
 router.use("/auth", authRouter);
 router.use("/category", authCategory);
+router.use("/comments", commentRouter);
 
 export default router;
